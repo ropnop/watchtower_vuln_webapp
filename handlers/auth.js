@@ -1,16 +1,6 @@
 require('rootpath')();
 const _ = require('lodash');
-
-function authMiddleware(req, res, next) {
-    if (req.path === "/login" || req.path === "/register") {
-        next();
-    }
-    else if (req.session.isNew) {
-        res.redirect('/login');
-    } else {
-        next();
-    }
-}
+const {v4: uuid} = require('uuid')
 
 function loginPage (req, res) {
     res.render('login');
@@ -35,6 +25,7 @@ function register(req, res) {
         req.session.username = name;
         req.session.identity = identity;
         req.session.credits = 1000;
+        req.session.secretKey = uuid();
         res.redirect('/home');
     }
 
@@ -45,4 +36,4 @@ function logout(req, res) {
     res.redirect('/home');
 }
 
-module.exports = {authMiddleware, loginPage, login, registerPage, register, logout}
+module.exports = {loginPage, login, registerPage, register, logout}

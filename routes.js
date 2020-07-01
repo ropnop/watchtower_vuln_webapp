@@ -1,4 +1,6 @@
+require('rootpath')();
 const express = require('express');
+
 const router = express.Router();
 
 var handlers = require('require-all')(__dirname + '/handlers');
@@ -14,6 +16,11 @@ router.get('/logout', handlers.auth.logout);
 
 router.get('/register', handlers.auth.registerPage);
 router.post('/register', handlers.auth.register);
+
+router.get("/secretkey", handlers.secretKey.keyPage);
+
+const badCors = require('./libraries/badcors');
+router.get("/api/secretkey", badCors, handlers.secretKey.fetchKey);
 
 router.get('/oracle', handlers.todo);
 router.get('/secretidentities', handlers.todo);

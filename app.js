@@ -8,7 +8,7 @@ const path = require('path');
 const {logger, config} = require('./conf/config');
 const router = require('./routes');
 const errroHandler = require('./handlers/error-handler');
-const {authMiddleware} = require('./handlers/auth')
+const authMiddleware = require('./libraries/session');
 
 const app = express();
 

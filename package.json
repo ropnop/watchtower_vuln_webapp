@@ -1,0 +1,26 @@
+{
+  "name": "watchtower-vuln-app",
+  "version": "1.0.0",
+  "description": "Watchtower WebApp for the Justice League",
+  "main": "app.js",
+  "author": "rflathers@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "lodash": "^4.17.15",
+    "log4js": "^6.3.0",
+    "require-all": "^3.0.0",
+    "rootpath": "^0.1.2",
+    "uuid": "^8.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

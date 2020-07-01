@@ -1,0 +1,22 @@
+<div class="alert alert-primary">
+    Please register your superhero to access the site
+</div>
+
+<form action="/register" method="POST">
+<div class="form-group">
+    <label for="inputSuperheroName">Superhero Name</label>
+    <input type="text" class="form-control" id="inputSuperheroName" name="name">
+</div>
+<div class="form-group">
+    <label for="inputSecretIdentity">Real Name (Secret Identity)</label>
+    <input type="text" class="form-control" id="inputSecretIdentity" name="identity">
+</div>
+<div class="form-group">
+    <label for="inputRegistrationCode">Registration Code</label>
+    <input type="password" class="form-control" id="inputRegistrationCode" name="code">
+    <small id="codeHelp" class="form-text text-muted">This is the secret code that should have been given to you by Batman or Superman</small>
+    <!-- The default registration code Just1c3L34gue always works, but I'll make sure to change this before going to prod -Flash -->
+</div>
+
+<button type="submit" class="btn btn-primary">Register</button>
+</form>

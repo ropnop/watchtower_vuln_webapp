@@ -22,7 +22,9 @@ router.get("/secretkey", handlers.secretKey.keyPage);
 const badCors = require('./libraries/badcors');
 router.get("/api/secretkey", badCors, handlers.secretKey.fetchKey);
 
-router.get('/oracle', handlers.todo);
+router.get('/oracle', handlers.oracle.oracleSearch);
+
+
 router.get('/secretidentities', handlers.todo);
 router.get('/credits', handlers.todo);
 router.get('/admin/debug', handlers.todo);

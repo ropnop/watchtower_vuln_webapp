@@ -1,0 +1,45 @@
+<br/>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Oracle - Query</h4>
+        <p class="card-text">This form will let you tap into Oracle's database on all known villains operating in Gotham City. Enter a search term to see if there are any matches.</p>
+    </div>
+</div>
+
+<br/>
+<form action="/oracle">
+<div class="form-group">
+    <label for="inputVillainName"><h5>Villain Name</h5></label>
+    <input type="text" class="form-control" id="inputVillainName" name="search">
+</div>
+<button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<br/>
+<br/>
+
+{{#if searchTerm}}
+<table class="table table-striped">
+    <thead>
+        <th scope="col">#</th>
+        <th scope="col">Villain Name</th>
+        <th scope="col">More Information</th>
+    </thead>
+    <tbody>
+        {{#each results}}
+        <tr>
+            <th scope="row">{{@index}}</th>
+            <td>{{this}}</td>
+            <td><a href="https://en.wikipedia.org/wiki/{{{this}}}">More Info</a></td>
+        </tr>
+        {{else}}
+        <tr>
+            <th socpe="row">1</th>
+            <td>No results for <b>{{searchTerm}}</b></td>
+            <td><a href="https://en.wikipedia.org/wiki/{{{searchTerm}}}">Try Wikipedia Search?</a></td>
+        </tr>
+        {{/each}}  
+    </tbody>
+</table>
+{{/if}}

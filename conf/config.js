@@ -1,5 +1,5 @@
 const env = process.env.NODE_ENV || "dev";
-const port = process.env.NODE_PORT || 5000;
+const port = process.env.NODE_PORT || 3000;
 
 const tokenKey = process.env.TOKEN_KEY || "devinsecurekey";
 

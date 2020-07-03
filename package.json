@@ -17,6 +17,7 @@
     "express-handlebars": "^4.0.4",
     "lodash": "^4.17.15",
     "log4js": "^6.3.0",
+    "matcher": "^3.0.0",
     "require-all": "^3.0.0",
     "rootpath": "^0.1.2",
     "uuid": "^8.2.0"

@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import ReactDOM from "react-dom";
 import axios from 'axios';
 
 function getHashValue() {
@@ -102,7 +101,8 @@ function HelpResults({ searchTerm }) {
     )
 }
 
+export default Heroes
 
 
 
-ReactDOM.render(<Heroes />, document.getElementById("Heroes"))
+// ReactDOM.render(<Heroes />, document.getElementById("Heroes"))

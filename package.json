@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "build": "babel client -d static/"
+    "build": "webpack"
   },
   "dependencies": {
     "@babel/runtime": "^7.10.4",

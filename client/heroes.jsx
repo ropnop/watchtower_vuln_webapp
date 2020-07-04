@@ -25,8 +25,9 @@ function Heroes() {
     }, [])
 
     useEffect(() => {
-        window.location.hash = searchTerm
-    });
+        window.location.hash = searchTerm,
+        filterResults(searchTerm)
+    }, [searchTerm]);
 
     const filterResults = (term) => {
         const filteredResults = allHeroes.current.filter(hero =>
@@ -37,7 +38,6 @@ function Heroes() {
 
     const handleChange = e => {
         setSearchTerm(e.target.value)
-        filterResults(searchTerm)
     }
  
 

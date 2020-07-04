@@ -43,7 +43,7 @@ class HeroTable extends React.Component {
                 <tr key={index}>
                     <th scope="row">{index}</th>
                     <td>{hero}</td>
-                    <td><a href="#">foobar</a></td>
+                    <td><a href={`https://en.wikipedia.org/wiki/${hero}`}>More Info</a></td>
                 </tr>
             )
         })

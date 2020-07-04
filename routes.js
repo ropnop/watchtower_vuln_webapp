@@ -23,7 +23,8 @@ const badCors = require('./libraries/badcors');
 router.get("/api/secretkey", badCors, handlers.secretKey.fetchKey);
 
 router.get('/oracle/villains', handlers.oracle.villainSearch);
-router.get('/oracle/heroes', handlers.oracle.heroSearch)
+router.get('/oracle/heroes', handlers.oracle.heroSearch);
+router.get('/api/heroes', handlers.oracle.heroAPI);
 
 
 router.get('/secretidentities', handlers.todo);

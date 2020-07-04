@@ -1,6 +1,7 @@
 const heroes = [
     "Aquaman",
     "The Atom",
+    "Batman",
     "Black Canary",
     "Blue Beetle",
     "Captain Marvel",

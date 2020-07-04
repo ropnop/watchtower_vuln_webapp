@@ -20,4 +20,8 @@ function heroSearch (req, res) {
     res.render('oracle_heroes', {results: heroes})
 }
 
-module.exports = {villainSearch, heroSearch}
+function heroAPI (req, res) {
+    res.json(heroes)
+}
+
+module.exports = {villainSearch, heroSearch, heroAPI}

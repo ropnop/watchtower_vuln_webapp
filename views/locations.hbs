@@ -1,0 +1,39 @@
+<br/>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Locations Database</h4>
+        <p class="card-text">This form will let you tap into the Justice League's SQL database of superheroes operating in cities around the universe</p>
+    </div>
+</div>
+
+<br/>
+<form action="/locations" method="POST">
+<div class="form-group">
+    <label for="inputCityName"><h5>Location Name</h5></label>
+    <input type="text" class="form-control" id="inputCityName" name="city">
+</div>
+<button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<br/>
+<br/>
+
+{{#if results}}
+<table class="table table-striped">
+    <thead>
+        <th scope="col">#</th>
+        <th scope="col">Hero Name</th>
+        <th scope="col">Location</th>
+    </thead>
+    <tbody>
+        {{#each results}}
+        <tr>
+            <th scope="row">{{@index}}</th>
+            <td>{{this.superhero}}</td>
+            <td>{{this.location}}</td>
+        </tr>
+        {{/each}}  
+    </tbody>
+</table>
+{{/if}}

@@ -32,6 +32,8 @@ router.get('/credits', handlers.todo);
 router.get('/admin/debug', handlers.todo);
 router.get('/admin/batcave', handlers.todo);
 
+router.get('/locations', handlers.locations.locationsPage);
+router.post('/locations', handlers.locations.queryLocations);
 
 router.all('*', (req, res) => {
     res.status(404).render('error', {message: "Page not found"})

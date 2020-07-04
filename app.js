@@ -9,6 +9,7 @@ const {logger, config} = require('./conf/config');
 const router = require('./routes');
 const errroHandler = require('./handlers/error-handler');
 const authMiddleware = require('./libraries/session');
+const initDB = require('./libraries/database');
 
 const app = express();
 
@@ -36,6 +37,8 @@ app.use('/static', express.static(path.join(__dirname, "/static")));
 app.use(errroHandler);
 
 app.use('/', router);
+
+app.set('db', initDB());
 
 app.listen(config.port, () => {
     logger.info(`Environment: ${config.env}`)

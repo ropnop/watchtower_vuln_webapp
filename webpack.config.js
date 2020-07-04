@@ -4,7 +4,7 @@ module.exports = {
     entry: "./client/heroes.jsx",
     output: {
         filename: 'js/bundle.js',
-        path: path.resolve(__dirname, 'static')
+        path: path.resolve(__dirname, 'dist')
     },
     resolve: {
         extensions: ['*', '.js', '.jsx'],

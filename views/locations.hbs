@@ -38,8 +38,8 @@
 </table>
 {{/if}}
 
-{{#unless hasResults}}
+{{#if error}}
 <div class="alert alert-danger">
-        <i class="fa fa-times"></i> No results!
+        <i class="fa fa-times"></i> {{error}}
 </div>
-{{/unless}}
+{{/if}}

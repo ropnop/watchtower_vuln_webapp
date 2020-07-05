@@ -7,11 +7,11 @@ function queryLocations(req, res) {
     db.all(sql, (err, rows) => {
         if (err) {
             const message = `${err.message} -- BAD QUERY: "${sql}"`
-            res.render('error', {message: message})
+            res.render('locations', {error: message})
             return
         }
-        const hasResults = rows.length != 0 ? true : false
-        res.render('locations', {results: rows, hasResults: hasResults})
+        const message = rows.length == 0 ? "No results!" : ""
+        res.render('locations', {results: rows, error: message})
     })
 }
 

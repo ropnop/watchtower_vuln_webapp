@@ -33,7 +33,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, '/views'));
 
-app.use('/static', express.static(path.join(__dirname, "/static")));
+app.use('/static', express.static(path.join(__dirname, "static")));
 
 app.use(errroHandler);
 

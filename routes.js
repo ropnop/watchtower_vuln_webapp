@@ -2,42 +2,47 @@ require('rootpath')();
 const express = require('express');
 const badCors = require('./libraries/badcors');
 
+const homepage = require('./handlers/homepage')
+const auth = require('./handlers/auth')
+const secretKey = require('./handlers/secretKey')
+const oracle = require('./handlers/oracle')
+const locations = require('./handlers/locations')
+const credits = require('./handlers/credits')
+
+
 
 const router = express.Router();
 
-var handlers = require('require-all')(__dirname + '/handlers');
 
 router.get('/', (req, res) => {
     return res.redirect('/home');
 })
-router.get('/home', handlers.homepage)
+router.get('/home', homepage)
 
-router.get('/login', handlers.auth.loginPage);
-router.post('/login', handlers.auth.login);
-router.get('/logout', handlers.auth.logout);
-router.get('/api/me', badCors, handlers.auth.whoami);
+router.get('/login', auth.loginPage);
+router.post('/login', auth.login);
+router.get('/logout', auth.logout);
+router.get('/api/me', badCors, auth.whoami);
 
-router.get('/register', handlers.auth.registerPage);
-router.post('/register', handlers.auth.register);
+router.get('/register', auth.registerPage);
+router.post('/register', auth.register);
 
-router.get("/secretkey", handlers.secretKey.keyPage);
+router.get("/secretkey", secretKey.keyPage);
 
-router.get("/api/secretkey", badCors, handlers.secretKey.fetchKey);
+router.get("/api/secretkey", badCors, secretKey.fetchKey);
 
-router.get('/oracle/villains', handlers.oracle.villainSearch);
-router.get('/oracle/heroes', handlers.oracle.heroSearch);
-router.get('/api/heroes', handlers.oracle.heroAPI);
+router.get('/oracle/villains', oracle.villainSearch);
+router.get('/oracle/heroes',oracle.heroSearch);
+router.get('/api/heroes', oracle.heroAPI);
 
 
-
-router.get('/admin/debug', handlers.todo);
 router.get('/admin/batcave', (req, res) => res.render('batcave'));
 
-router.get('/locations', handlers.locations.locationsPage);
-router.post('/locations', handlers.locations.queryLocations);
+router.get('/locations', locations.locationsPage);
+router.post('/locations', locations.queryLocations);
 
-router.get('/credits', handlers.credits.creditsPage);
-router.post('/credits', handlers.credits.transferCredits);
+router.get('/credits', credits.creditsPage);
+router.post('/credits', credits.transferCredits);
 
 router.all('*', (req, res) => {
     res.status(404).render('error', {message: "Page not found"})

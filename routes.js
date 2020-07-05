@@ -1,5 +1,7 @@
 require('rootpath')();
 const express = require('express');
+const badCors = require('./libraries/badcors');
+
 
 const router = express.Router();
 
@@ -13,13 +15,13 @@ router.get('/home', handlers.homepage)
 router.get('/login', handlers.auth.loginPage);
 router.post('/login', handlers.auth.login);
 router.get('/logout', handlers.auth.logout);
+router.get('/api/me', badCors, handlers.auth.whoami);
 
 router.get('/register', handlers.auth.registerPage);
 router.post('/register', handlers.auth.register);
 
 router.get("/secretkey", handlers.secretKey.keyPage);
 
-const badCors = require('./libraries/badcors');
 router.get("/api/secretkey", badCors, handlers.secretKey.fetchKey);
 
 router.get('/oracle/villains', handlers.oracle.villainSearch);
@@ -29,7 +31,7 @@ router.get('/api/heroes', handlers.oracle.heroAPI);
 
 
 router.get('/admin/debug', handlers.todo);
-router.get('/admin/batcave', handlers.todo);
+router.get('/admin/batcave', (req, res) => res.render('batcave'));
 
 router.get('/locations', handlers.locations.locationsPage);
 router.post('/locations', handlers.locations.queryLocations);

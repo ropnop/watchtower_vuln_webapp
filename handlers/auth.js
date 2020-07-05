@@ -36,4 +36,10 @@ function logout(req, res) {
     res.redirect('/home');
 }
 
-module.exports = {loginPage, login, registerPage, register, logout}
+function whoami(req, res) {
+    const data = req.session
+    delete data['secretKey']
+    res.json(data)
+}
+
+module.exports = {loginPage, login, registerPage, register, logout, whoami}

@@ -4,7 +4,7 @@ function keyPage(req, res) {
 
 function fetchKey(req, res) {
     const {secretKey} = req.session
-    res.send(JSON.stringify({secretKey: secretKey}));
+    res.json({secretKey: secretKey})
 }
 
 module.exports = {keyPage, fetchKey}

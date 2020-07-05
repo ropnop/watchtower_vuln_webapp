@@ -1,6 +1,7 @@
 require('rootpath')();
 const _ = require('lodash');
 const {v4: uuid} = require('uuid')
+const {heroes} = require('../data/heroes_and_villains')
 
 function loginPage (req, res) {
     res.render('login');
@@ -19,7 +20,9 @@ const registrationCode = "Just1c3L34gue";
 
 function register(req, res) {
     let {name, identity, code } = req.body
-    if (code !== registrationCode) {
+    if (heroes.includes(name)) {
+        res.render('error', {message: 'That super hero name is already taken by a member!'})
+    } else if (code !== registrationCode) {
         res.render('error', {message: 'Bad registration code'});
     } else {
         req.session.username = name;
@@ -37,8 +40,8 @@ function logout(req, res) {
 }
 
 function whoami(req, res) {
-    const data = req.session
-    delete data['secretKey']
+    const {username, identity, credits} = req.session
+    const data = {username: username, identity: identity, credits: credits}
     res.json(data)
 }
 

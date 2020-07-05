@@ -7,7 +7,8 @@ const auth = require('./handlers/auth')
 const secretKey = require('./handlers/secretKey')
 const oracle = require('./handlers/oracle')
 const locations = require('./handlers/locations')
-const credits = require('./handlers/credits')
+const credits = require('./handlers/credits');
+const batcave = require('./handlers/batcave');
 
 
 
@@ -37,6 +38,7 @@ router.get('/api/heroes', oracle.heroAPI);
 
 
 router.get('/admin/batcave', (req, res) => res.render('batcave'));
+router.get('/api/batcave/authorize', batcave.authorize);
 
 router.get('/locations', locations.locationsPage);
 router.post('/locations', locations.queryLocations);

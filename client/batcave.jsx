@@ -2,26 +2,22 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 function Batcave() {
-    const [user, setUser] = useState({});
+    const [isBatman, setIsBatman] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    const fetchCurrentUser = async () => {
-        const result = await axios("/api/me");
-        setUser(result.data)
+    const authorizeUser = async () => {
+        const result = await axios("/api/batcave/authorize");
+        setIsBatman(result.data.isBatman)
         setIsLoaded(true)
-    }
-
-    const isBatman = () => {
-        return user.username === "Batman" ? true : false
     }
 
     if (!isLoaded) {
         return (
             <div>
-            <button type="button" className="btn btn-dark" onClick={fetchCurrentUser}>Enter Batcave</button>
+            <button type="button" className="btn btn-dark" onClick={authorizeUser}>Enter Batcave</button>
             </div>
         )
-    } else if (!isBatman()) {
+    } else if (!isBatman) {
         return (
             <div className="alert alert-danger">
             <i className="fa fa-times"></i> Nice try! You're not <b>Batman</b>!

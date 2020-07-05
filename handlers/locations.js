@@ -6,7 +6,7 @@ function queryLocations(req, res) {
     console.log(sql);
     db.all(sql, (err, rows) => {
         if (err) {
-            const message = `${err.message} -- BAD QUERY: "${sql}"`
+            const message = `${err.message} -- BAD QUERY: ${sql}`
             res.render('locations', {error: message})
             return
         }

@@ -10,7 +10,8 @@ function queryLocations(req, res) {
             res.render('error', {message: message})
             return
         }
-        res.render('locations', {results: rows})
+        const hasResults = rows.length != 0 ? true : false
+        res.render('locations', {results: rows, hasResults: hasResults})
     })
 }
 

@@ -3,7 +3,7 @@
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Locations Database</h4>
-        <p class="card-text">This form will let you tap into the Justice League's SQL database of superheroes operating in cities around the universe</p>
+        <p class="card-text">This form will let you tap into the Justice League's database of superheroes operating in cities around the universe</p>
     </div>
 </div>
 
@@ -37,3 +37,9 @@
     </tbody>
 </table>
 {{/if}}
+
+{{#unless hasResults}}
+<div class="alert alert-danger">
+        <i class="fa fa-times"></i> No results!
+</div>
+{{/unless}}

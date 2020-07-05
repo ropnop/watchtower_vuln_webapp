@@ -21,7 +21,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieSession({
     name: 'session',
     keys: [config.tokenKey],
-    maxAge: 24*60*60*1000 //24hours
+    maxAge: 24*60*60*1000, //24hours
+    httpOnly: false
 }));
 
 app.use(authMiddleware);

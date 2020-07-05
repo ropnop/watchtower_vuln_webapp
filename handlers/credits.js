@@ -12,8 +12,6 @@ function transferCredits(req, res) {
     const available = req.session.credits
     if (amount > available) {
         res.render('credits', {error: notEnoughCredits, heroes: heroes})
-    } else if (!heroes.includes(recipient)) {
-        res.render('credits', {error: heroNotExists, heroes: heroes})
     } else {
         req.session.credits = req.session.credits - amount;
         res.render('credits', {success: true, amount: amount, recipient: recipient, heroes: heroes})

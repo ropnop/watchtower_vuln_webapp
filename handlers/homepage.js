@@ -1,7 +1,7 @@
 require('rootpath')();
 
 const homepage = (req, res, next) => {
-    res.render('index', req.session)
+    res.render('index')
 }
 
 module.exports = homepage

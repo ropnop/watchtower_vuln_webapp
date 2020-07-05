@@ -27,13 +27,15 @@ router.get('/oracle/heroes', handlers.oracle.heroSearch);
 router.get('/api/heroes', handlers.oracle.heroAPI);
 
 
-router.get('/secretidentities', handlers.todo);
-router.get('/credits', handlers.todo);
+
 router.get('/admin/debug', handlers.todo);
 router.get('/admin/batcave', handlers.todo);
 
 router.get('/locations', handlers.locations.locationsPage);
 router.post('/locations', handlers.locations.queryLocations);
+
+router.get('/credits', handlers.credits.creditsPage);
+router.post('/credits', handlers.credits.transferCredits);
 
 router.all('*', (req, res) => {
     res.status(404).render('error', {message: "Page not found"})

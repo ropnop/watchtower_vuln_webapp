@@ -45,7 +45,6 @@
                         Admin
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="/admin/debug" class="dropdown-item">Debug</a>
                         <a href="/admin/batcave" class="dropdown-item">Batcave</a>
                     </div>
                 </li>
@@ -54,10 +53,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user"></i> {{username}}
+                        <i class="fa fa-user"></i> {{session.username}}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="/profile" class="dropdown-item">Profile</a>
                         <a href="/secretkey" class="dropdown-item">Secret Key</a>
                         <a href="/logout" class="dropdown-item">Logout</a>
                     </div>

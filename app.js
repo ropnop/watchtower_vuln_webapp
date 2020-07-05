@@ -8,7 +8,7 @@ const path = require('path');
 const {logger, config} = require('./conf/config');
 const router = require('./routes');
 const errroHandler = require('./handlers/error-handler');
-const authMiddleware = require('./libraries/session');
+const {authMiddleware, userView} = require('./libraries/session');
 const db = require('./libraries/database');
 
 const app = express();
@@ -25,6 +25,7 @@ app.use(cookieSession({
 }));
 
 app.use(authMiddleware);
+app.use(userView);
 
 app.engine('.hbs', exphbs({
     extname: '.hbs'

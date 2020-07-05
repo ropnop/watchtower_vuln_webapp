@@ -9,4 +9,9 @@ function authMiddleware(req, res, next) {
     }
 }
 
-module.exports = authMiddleware
+function userView(req, res, next) {
+    res.locals.session = req.session;
+    next();
+}
+
+module.exports = {authMiddleware, userView}

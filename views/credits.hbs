@@ -1,0 +1,44 @@
+<br/>
+{{#if success}}
+<div class="alert alert-success">
+    Successfully transfered <b>{{amount}}</b> credits to <b>{{recipient}}</b>
+</div>
+{{else if error}}
+<div class="alert alert-danger">
+    <i class="fa fa-times"></i> {{error}}
+</div>
+{{else}}
+<div class="alert alert-primary">
+    You can transfer your crime-fighting credits to other heroes. Credits can be used to buy new gear!
+</div>
+{{/if}}
+<br/>
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{session.username}}'s Credits</h5>
+        <p class="card-tex">You have <b>{{session.credits}}</b> credits available</p>
+    </div>
+</div>
+
+<br/>
+
+<form action="/credits" method="POST">
+<div class="form-group">
+    <label for="heroSelect">Transfer To</label>
+    <select class="custom-select" id="heroSelect" name="recipient">
+        <option selected>Select Hero</option>
+        {{#each heroes}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+    </select>
+</div>
+<div class="form-group">
+    <label for="inputAmount">Amount to Transfer</label>
+    <input type="number" class="form-control" id="inputAmount" name="amount">
+</div>
+
+
+<button type="submit" class="btn btn-primary">Transfer</button>
+</form>

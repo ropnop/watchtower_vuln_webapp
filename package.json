@@ -20,7 +20,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "log4js": "^6.3.0",
     "matcher": "^3.0.0",
     "react": "^16.13.1",

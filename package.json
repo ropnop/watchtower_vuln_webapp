@@ -27,7 +27,7 @@
     "react-dom": "^16.13.1",
     "require-all": "^3.0.0",
     "rootpath": "^0.1.2",
-    "sqlite3": "^5.0.0",
+    "sqlite3": "^5.0.3",
     "uuid": "^8.2.0"
   },
   "devDependencies": {
